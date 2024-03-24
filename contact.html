@@ -348,7 +348,8 @@
 
 
     <script>
-        function validateForm() {
+        function validateForm(event) {
+            event.preventDefault();
           const form = document.getElementById("contact-form");
           const nameInput = form.elements.namedItem("name");
           const emailInput = form.elements.namedItem("email");
@@ -376,14 +377,38 @@
           } else {
             messageInput.setCustomValidity("");
           }
+
+         if (isValid) {
+            // If form is valid, submit form data using AJAX or fetch
+            submitFormData(form);
+        }
         
-          return isValid;
+          return false;
         }
         
         function isValidEmail(email) {
           const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
           return emailRegex.test(email);
         }
+
+        function submitFormData(form) {
+  const formData = new FormData(form);
+
+  fetch("contact-form.php", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.text())
+    .then((data) => {
+      // Handle server response
+      console.log(data);
+      // Display success or error message to the user
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      // Display error message to the user
+    });
+}
         </script>
 </body>
 

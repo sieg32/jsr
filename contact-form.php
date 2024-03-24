@@ -13,9 +13,12 @@ $email_body .= "Email: " . $email . "\n\n";
 $email_body .= "Message: " . $message;
 
 // Send email
-mail($to, $email_subject, $email_body);
+if (mail($to, $email_subject, $email_body)) {
+    echo "Email sent successfully!";
+} else {
+    echo "Failed to send email.";
+}
 
 // Optional: Redirect or display a success message
-header("Location: thank-you.html");
-exit;
+
 ?>
