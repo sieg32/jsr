@@ -1,11 +1,16 @@
 /********** Template CSS **********/
 :root {
-    --primary: #06A3DA;
-    --secondary: #34AD54;
+    --primary: #a12826;
+    /* --primary: #06A3DA; */
+    --secondary: #a12826;
+    /* --secondary: #34AD54; */
     --light: #EEF9FF;
     --dark: #091E3E;
 }
 
+.bg-primary{
+    background-color: var(--primary);
+}
 
 /*** Spinner ***/
 .spinner {
@@ -89,6 +94,7 @@ h6,
 .btn-secondary {
     color: #ffffff;
     box-shadow: inset 0 0 0 50px transparent;
+    background-color: var(--primary);
 }
 
 .btn-primary:hover {

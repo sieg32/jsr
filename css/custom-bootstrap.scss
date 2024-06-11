@@ -1,0 +1,14 @@
+@import "bootstrap/scss/bootstrap";
+
+// Override Bootstrap variables
+$primary: #a12826; 
+
+/* ------- customize primary button color -------- */   
+
+$theme-colors: map-merge(
+	(
+  		"primary": $primary,
+  		
+	),
+	$theme-colors
+);
